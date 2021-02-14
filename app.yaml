@@ -1,10 +1,3 @@
 runtime: python38
 entrypoint: gunicorn -b :$PORT main:app
-target: backend
-
-env_variables:
-  DB_HOST: '127.0.0.1'
-  DB_USER: 'root'
-  DB_PASS: '5YxXd6bE9qmP'
-  DB_NAME: 'website'
-  UNIX_SOCKET: '/cloudsql/wsb-trends:us-central1:wsb-trends'
+service: backend
