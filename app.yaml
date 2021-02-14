@@ -1,3 +1,2 @@
 runtime: python38
-entrypoint: gunicorn -b :$PORT main:app
 service: backend
