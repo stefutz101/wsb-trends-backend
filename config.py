@@ -1,4 +1,4 @@
-# DB_HOST = '127.0.0.1'
+DB_HOST = '127.0.0.1'
 DB_USER = 'root'
 DB_PASS = '5YxXd6bE9qmP'
 DB_NAME = 'website'

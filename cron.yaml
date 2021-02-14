@@ -1,4 +1,4 @@
 cron:
 - description: "Run a Python script every 30 mins"
-  url: /scheduler
+  url: /cron
   schedule: every 15 mins
