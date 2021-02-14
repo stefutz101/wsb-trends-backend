@@ -1,5 +1,5 @@
 cron:
-- description: "Run a Python script every 30 mins"
+- description: "Run a Python script every 15 mins"
   url: /cron
   schedule: every 15 mins
   target: backend
