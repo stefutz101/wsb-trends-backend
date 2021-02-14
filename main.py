@@ -3,7 +3,7 @@ from data import *
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import nltk
 import config
-import mysql.connector
+import pymysql
 from flask import Flask, request
 
 app = Flask(__name__)
@@ -25,10 +25,9 @@ def cron():
         client_secret="joYl7_cCOwE2ezzmHIt55wOuKCYZCQ"
     )
 
-    cnx = mysql.connector.connect(user=config.DB_USER, password='',
-                                # unix_socket=config.UNIX_SOCKET,
-                                host=config.DB_HOST,
-                                database=config.DB_NAME)
+    cnx = pymysql.connect(user=config.DB_USER, password=config.DB_PASS,
+                            unix_socket=config.UNIX_SOCKET, db=config.DB_NAME,
+                            cursorclass=pymysql.cursors.DictCursor)
     cursor = cnx.cursor()
 
     # cleaning database
