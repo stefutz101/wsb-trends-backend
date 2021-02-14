@@ -38,7 +38,7 @@ def cron():
 
     # set the program parameters
     '''############################################################################'''
-    subs = ['wallstreetbets', 'stocks', 'investing', 'stockmarket']     # sub-reddit to search
+    subs = ['wallstreetbets', 'stocks', 'investing', 'stockmarket', 'pennystocks']     # sub-reddit to search
     post_flairs = {'Daily Discussion', 'Weekend Discussion', 'Discussion'}    # posts flairs to search || None flair is automatically considered
     goodAuth = {'AutoModerator'}   # authors whom comments are allowed more than once
     uniqueCmt = True                # allow one comment per author per symbol
