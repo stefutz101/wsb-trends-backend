@@ -10,12 +10,12 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def index():
-    return "Hello!"
+    return "Hello Word"
 
 @app.route("/cron", methods=["GET"])
 def cron():
-    # if request.headers.get('X-Appengine-Cron') != True:
-    #    return '401 Unauthorized'
+    if request.headers.get('X-Appengine-Cron') != True:
+        return '401 Unauthorized'
 
     nltk.download('vader_lexicon')
 
