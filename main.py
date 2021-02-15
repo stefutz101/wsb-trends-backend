@@ -4,7 +4,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import nltk
 import config
 import pymysql
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
@@ -14,10 +14,10 @@ def index():
 
 @app.route("/cron", methods=["GET"])
 def cron():
-    print(request.headers)
+    return jsonify(request.headers)
 
-    # if request.headers.get('X-Appengine-Cron') != True:
-    #    return '401 Unauthorized'
+    if request.headers.get('X-Appengine-Cron') != True:
+       return '401 Unauthorized'
 
     nltk.download('vader_lexicon')
 
@@ -41,8 +41,7 @@ def cron():
     # set the program parameters
     '''############################################################################'''
     subs = ['wallstreetbets', 'stocks', 'investing', 'stockmarket', 'pennystocks']     # sub-reddit to search
-    # post_flairs = {'Daily Discussion', 'Weekend Discussion', 'Discussion', 'Megathread'}    # posts flairs to search || None flair is automatically considered
-    post_flairs = None    # posts flairs to search || None flair is automatically considered
+    post_flairs = {'Daily Discussion', 'Weekend Discussion', 'Discussion', 'Megathread'}    # posts flairs to search || None flair is automatically considered
     goodAuth = {'AutoModerator'}   # authors whom comments are allowed more than once
     uniqueCmt = True                # allow one comment per author per symbol
     ignoreAuthP = {'example'}       # authors to ignore for posts 
