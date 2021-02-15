@@ -4,7 +4,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import nltk
 import config
 import pymysql
-from flask import Flask, request, jsonify
+from flask import Flask, request
 
 app = Flask(__name__)
 
@@ -14,7 +14,7 @@ def index():
 
 @app.route("/cron", methods=["GET"])
 def cron():
-    return jsonify(request.headers)
+    print(request.headers)
 
     if request.headers.get('X-Appengine-Cron') != True:
        return '401 Unauthorized'
@@ -163,6 +163,3 @@ def cron():
     cnx.close()
 
     return "Done"
-if __name__ == '__main__':
-    app.run(Debug=True)
-    
