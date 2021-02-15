@@ -20,6 +20,8 @@ def cron():
     if request.headers.get('X-Appengine-Cron') != True:
         print("WTFFF")
         return '401 Unauthorized'
+    else:
+        print("not WTFFF")
 
     nltk.download('vader_lexicon')
 
