@@ -16,9 +16,9 @@ def index():
 @app.route("/cron", methods=["GET"])
 def cron():
     logging.warning(request.headers)
-    
-    if request.headers.get('X-Appengine-Cron') != True:
-        return '401 Unauthorized'
+
+    # if request.headers.get('X-Appengine-Cron') != True:
+    #    return '401 Unauthorized'
 
     nltk.download('vader_lexicon')
 
