@@ -16,6 +16,9 @@ def index():
 def cron():
     for key, value in request.headers.items():
         print(key + " " + value)
+        print(
+            request.headers.get('X-Appengine-Cron')
+        )
 
     if request.headers.get('X-Appengine-Cron') != True:
         print("WTFFF")
