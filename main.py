@@ -165,3 +165,6 @@ def cron():
     cnx.close()
 
     return "Done"
+if __name__ == '__main__':
+    app.run()
+    
