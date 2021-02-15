@@ -14,7 +14,7 @@ def index():
 
 @app.route("/cron", methods=["GET"])
 def cron():
-    print(request.headers)
+    return request.headers
 
     if request.headers.get('X-Appengine-Cron') != True:
        return '401 Unauthorized'
